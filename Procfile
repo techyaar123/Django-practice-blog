@@ -1,1 +1,1 @@
-web: gunicorn my_site.wsgi --log-file -
+web: gunicorn MY_SITE.wsgi --log-file -

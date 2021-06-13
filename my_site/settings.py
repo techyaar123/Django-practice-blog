@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n6$8u%32%!*7gppyw47#e-tz&8tk)a*=3ixl4gr8erwmh@unm2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'myblogsite1122.herokuapp.com']
 
@@ -33,6 +36,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'myblogsite1122.herokuapp.com']
 
 INSTALLED_APPS = [
     'blog',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,5 +139,12 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_ROOT = BASE_DIR / "uploads"
+MEDIA_ROOT = BASE_DIR / "staticfiles/blog/images"
 MEDIA_URL = "/files/"
+
+
+cloudinary.config(
+    cloud_name="dsxy0841p",
+    api_key="999752774897324",
+    api_secret="WpTB1b7vyOmRF72qwp7rw83HCRw"
+)
